@@ -11,6 +11,7 @@ namespace VentaCarros2
         public MainTabbedPage()
         {
             Title = "Vende mi carro";
+            Children.Add(new CarsForSale());
         }
 
     }

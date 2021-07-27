@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VentaCarros2.CarsForSale" Title="Carros en venta">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar Placeholder="Busca tu vehiculo"
+                      CancelButtonColor="Orange"
+                      PlaceholderColor="Orange"/>
+
+            <ListView x:Name="CarsList" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal"
+                                       HorizontalOptions="FillAndExpand"  
+                                       VerticalOptions="FillAndExpand">
+                                <Image Source="{Binding PhotoUrl}"/>
+                                
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Brand}"></Label>
+                                    <Label Text="{Binding Description}"></Label>
+                                    <Label Text="{Binding Price}"></Label>
+                                </StackLayout>
+                                <Button Text="Favorito" HorizontalOptions="EndAndExpand"></Button>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

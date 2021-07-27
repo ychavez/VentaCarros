@@ -10,7 +10,7 @@ namespace VentaCarros2
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainTabbedPage());
         }
 
         protected override void OnStart()
