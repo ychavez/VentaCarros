@@ -133,4 +133,7 @@
       <Name>VentaCarros2</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SQLiteiOS.cs" />
+  </ItemGroup>
 </Project>
