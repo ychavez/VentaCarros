@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VentaCarros2.AddCar">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Frame CornerRadius="10" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center">
+                <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Image>
+            </Frame>
+            
+            
+            <Entry Placeholder="Modelo" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
+            <Entry Placeholder="Marca" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
+            <Entry Placeholder="Año" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Keyboard="Numeric"></Entry>
+            <Entry Placeholder="Descripcion"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
+            <Entry Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Keyboard="Numeric"></Entry>
+            <Button Text="Agregar"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="VentaCarros2.CarsForSale" Title="Carros en venta">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Agregar" Priority="0" Clicked="ToolbarItem_Clicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
             <SearchBar Placeholder="Busca tu vehiculo"

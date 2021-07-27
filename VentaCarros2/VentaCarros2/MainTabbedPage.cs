@@ -12,6 +12,9 @@ namespace VentaCarros2
         {
             Title = "Vende mi carro";
             Children.Add(new CarsForSale());
+            Children.Add(new NearCars());
+            Children.Add(new Favorites());
+
         }
 
     }
