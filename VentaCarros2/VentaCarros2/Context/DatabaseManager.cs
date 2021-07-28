@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 using VentaCarros2.DependencyServices;
 using VentaCarros2.Models;
@@ -31,7 +32,29 @@ namespace VentaCarros2.Context
         /// nos regresa la lista de coches marcados como favoritos desde la tabla Car
         /// </summary>
         /// <returns></returns>
-        public List<Car> GetFavoriteCars() => db.Query<Car>("Select * from car");
+        public List<Car> GetFavoriteCars() 
+        {
+
+            var cars = db.Query<Car>("Select * from car");
+
+            var ServiceCars = new RestService().GetCars();
+
+            var soldCards = cars.Where(x => 
+                     !ServiceCars.Any(c => c.Id == x.Id) ).ToList();
+
+            foreach (var car in soldCards)
+            {
+                db.Delete<Car>(car.Id);
+            }
+
+            return db.Query<Car>("Select * from car");
+
+        }
+
+        private object RestService()
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// valida si el carro no existe ya en la tabla y lo inserta

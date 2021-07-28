@@ -21,29 +21,7 @@ namespace VentaCarros2
         }
 
         public List<Car> GetCars()
-            => new List<Car>()
-                    {
-                        new Car
-                        {
-                          Id = 1,
-                          Brand = "Chevrolet" ,
-                          Description ="Camaro bonito un solo dueño",
-                          Model ="Camaro",
-                          Price = 10000.00M,
-                          Year = 2016,
-                          PhotoUrl="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/1:1/w_1500,h_1500,c_limit/Transpo_G70_TA-518126.jpg"
-                        },
-                        new Car
-                        {
-                          Id = 2,
-                          Brand = "Ford" ,
-                          Description ="Mutang bonito un solo dueño",
-                          Model ="Mustang",
-                          Price = 9000.00M,
-                          Year = 2015,
-                          PhotoUrl="https://media.wired.com/photos/5d09594a62bcb0c9752779d9/1:1/w_1500,h_1500,c_limit/Transpo_G70_TA-518126.jpg"
-                        }
-                    };
+            => new RestService().GetCars();
 
         private void ToolbarItem_Clicked(object sender, EventArgs e) => Navigation.PushAsync(new AddCar());
 
