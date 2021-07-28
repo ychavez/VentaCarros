@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using VentaCarros2.Context;
 using VentaCarros2.Models;
 using Xamarin.Forms;
@@ -17,8 +15,15 @@ namespace VentaCarros2
         public CarsForSale()
         {
             InitializeComponent();
-            CarsList.ItemsSource = GetCars();
+            LoadList();
+            MessagingCenter.Subscribe<Page>(this, "UpdateList", messageCallBack);
         }
+
+        private void messageCallBack(object obj)
+            => LoadList();
+
+        private void LoadList()
+            => CarsList.ItemsSource = GetCars();
 
         public List<Car> GetCars()
             => new RestService().GetCars();
@@ -31,5 +36,16 @@ namespace VentaCarros2
                 new DatabaseManager().AddFavoriteCar((Car)((Button)sender).BindingContext)
                 ? "Auto favorito agregado correctamente" : "El auto ya se encuentra en favoritos", "Ok");
 
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = SearchCar.Text.ToUpper();
+
+            var carsSearched = new RestService().GetCars()
+                .Where(x => x.Model.ToUpper().Contains(searchText)
+                            || x.Description.ToUpper().Contains(searchText)
+                            || x.Brand.ToUpper().Contains(searchText));
+
+            CarsList.ItemsSource = carsSearched;
+        }
     }
 }

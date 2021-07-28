@@ -9,7 +9,9 @@
         <StackLayout>
             <SearchBar Placeholder="Busca tu vehiculo"
                       CancelButtonColor="Orange"
-                      PlaceholderColor="Orange"/>
+                      PlaceholderColor="Orange"
+                      TextChanged="SearchBar_TextChanged"
+                      x:Name="SearchCar"/>
 
             <ListView x:Name="CarsList" RowHeight="100">
                 <ListView.ItemTemplate>

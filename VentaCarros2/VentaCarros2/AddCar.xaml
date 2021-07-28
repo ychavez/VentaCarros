@@ -6,16 +6,16 @@
         <StackLayout>
 
             <Frame CornerRadius="10" HeightRequest="200" WidthRequest="200" HorizontalOptions="Center">
-                <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Image>
+                <Image HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="img"></Image>
             </Frame>
-            
-            
-            <Entry Placeholder="Modelo" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
-            <Entry Placeholder="Marca" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
-            <Entry Placeholder="Año" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Keyboard="Numeric"></Entry>
-            <Entry Placeholder="Descripcion"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
-            <Entry Placeholder="Precio" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Keyboard="Numeric"></Entry>
-            <Button Text="Agregar"></Button>
+
+
+            <Entry Placeholder="Modelo" x:Name="txtModelo"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
+            <Entry Placeholder="Marca"  x:Name="txtMarca" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
+            <Entry Placeholder="Año"    x:Name="txtAnno" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Keyboard="Numeric"></Entry>
+            <Entry Placeholder="Descripcion" x:Name="txtDescripcion"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
+            <Entry Placeholder="Precio"      x:Name="txtPrecio"    HorizontalOptions="FillAndExpand" VerticalOptions="Center" Keyboard="Numeric"></Entry>
+            <Button Text="Agregar" x:Name="btnagregar" Clicked="btnagregar_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

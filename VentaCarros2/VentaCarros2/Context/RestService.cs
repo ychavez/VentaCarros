@@ -31,7 +31,21 @@ namespace VentaCarros2.Context
 
             throw new Exception("Error al tratar de obtener la informacion");
         }
+        /// <summary>
+        /// Inserta en el servicio un coche nuevo
+        /// </summary>
+        /// <param name="car"></param>
+        public void SetCar(Car car) 
+        {
+            var json = JsonConvert.SerializeObject(car);
 
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
 
+            var response = _client.PostAsync("api/carsForSalesApi", data).Result;
+            if (!response.IsSuccessStatusCode)
+            {
+                throw new Exception("Error al tratar de enviar la informacion al servicio web");
+            }      
+        }
     }
 }
