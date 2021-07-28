@@ -4,9 +4,30 @@
              x:Class="VentaCarros2.Favorites" Title="Favoritos">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="CarsList" RowHeight="100">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                <Image Source="{Binding PhotoUrl}"/>
+                                <StackLayout Orientation="Vertical">
+                                    <StackLayout Orientation="Horizontal">
+                                        
+                                    <Label Text="{Binding Brand}"/>
+                                    <Label Text="{Binding Model}"/>
+                                        
+                                    </StackLayout>
+                                   
+                                    <Label Text="{Binding Description}"/>
+                                    <Label Text="{Binding Price, StringFormat='{0:C}'}"/>
+
+                                </StackLayout>
+                                
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

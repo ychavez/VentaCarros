@@ -25,7 +25,7 @@
                                     <Label Text="{Binding Description}"></Label>
                                     <Label Text="{Binding Price}"></Label>
                                 </StackLayout>
-                                <Button Text="Favorito" HorizontalOptions="EndAndExpand"></Button>
+                                <Button Text="Favorito" HorizontalOptions="EndAndExpand" Clicked="Button_Clicked"></Button>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

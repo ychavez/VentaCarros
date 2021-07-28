@@ -21,6 +21,11 @@ namespace VentaCarros2.Context
             if (!TableExists("Car"))
                 db.CreateTable<Car>();
 
+            //Application.Current.Properties["Rating"] = 10;
+            //int Rating;
+            //if (Application.Current.Properties.ContainsKey("Rating"))
+            //    Rating = (int)Application.Current.Properties["Rating"];
+          
         }
         /// <summary>
         /// nos regresa la lista de coches marcados como favoritos desde la tabla Car
