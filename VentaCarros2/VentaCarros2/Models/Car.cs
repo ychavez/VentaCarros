@@ -15,5 +15,10 @@
         public int Year { get; set; }
 
         public string PhotoUrl { get; set; }
+
+        public double? Lat { get; set; }
+        public double? Lon { get; set; }
+
+     
     }
 }

@@ -37,17 +37,9 @@ namespace VentaCarros2.Context
 
             var cars = db.Query<Car>("Select * from car");
 
-            var ServiceCars = new RestService().GetCars();
+           
 
-            var soldCards = cars.Where(x => 
-                     !ServiceCars.Any(c => c.Id == x.Id) ).ToList();
-
-            foreach (var car in soldCards)
-            {
-                db.Delete<Car>(car.Id);
-            }
-
-            return db.Query<Car>("Select * from car");
+            return cars;
 
         }
 

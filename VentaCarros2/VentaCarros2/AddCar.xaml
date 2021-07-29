@@ -16,6 +16,7 @@
             <Entry Placeholder="Descripcion" x:Name="txtDescripcion"  HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
             <Entry Placeholder="Precio"      x:Name="txtPrecio"    HorizontalOptions="FillAndExpand" VerticalOptions="Center" Keyboard="Numeric"></Entry>
             <Button Text="Agregar" x:Name="btnagregar" Clicked="btnagregar_Clicked"></Button>
+            <Button Text="Tomar Foto" x:Name="btnFoto" Clicked="btnFoto_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
