@@ -23,7 +23,7 @@ namespace VentaCarros2
 
             var position = await locator.GetPositionAsync();
 
-            new RestService().SetCar(new Car
+            var car = new Car
             {
                 Brand = txtMarca.Text,
                 Description = txtDescripcion.Text,
@@ -33,12 +33,34 @@ namespace VentaCarros2
                 PhotoUrl = "https://images.segundamano.mx/api/v1/smmx/images/50/5085090212.jpg?rule=web_gallery_1x",
                 Lat = position.Latitude,
                 Lon = position.Longitude
-            });
-            await DisplayAlert("Agregado", "El auto se ha agregado", "Aceptar");
+            };
 
-            MessagingCenter.Send<Page>(this, "UpdateList");
+            if (validarObjeto(car))
+            {
+                new RestService().SetCar(new Car
+                {
+                    Brand = txtMarca.Text,
+                    Description = txtDescripcion.Text,
+                    Model = txtModelo.Text,
+                    Price = decimal.Parse(txtPrecio.Text),
+                    Year = int.Parse(txtAnno.Text),
+                    PhotoUrl = "https://images.segundamano.mx/api/v1/smmx/images/50/5085090212.jpg?rule=web_gallery_1x",
+                    Lat = position.Latitude,
+                    Lon = position.Longitude
+                });
+                await DisplayAlert("Agregado", "El auto se ha agregado", "Aceptar");
 
-            await Navigation.PopAsync();
+                MessagingCenter.Send<Page>(this, "UpdateList");
+
+                await Navigation.PopAsync();
+            }
+            else
+                await DisplayAlert("revise la informacion", "Es necesario llenar todos los campos","aceptar");
+        }
+
+        private bool validarObjeto(Car car)
+        {
+            return !string.IsNullOrWhiteSpace(car.Description);
         }
 
         private async void btnFoto_Clicked(object sender, EventArgs e)

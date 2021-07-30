@@ -16,8 +16,6 @@ namespace VentaCarros2
     {
         private readonly MapManager mapManager;
 
-
-
         public NearCars()
         {
             InitializeComponent();
